@@ -5,45 +5,33 @@ menuIcon.onclick = function(){
     sidebar.classList.toggle("small-sidebar")
 }
 
-const url = 'https://youtube138.p.rapidapi.com/channel/details/?id=UC8fkwsjcI_MhralEX1g4OBw&hl=en&gl=US';
-const options = {
-	method: 'GET',
-	headers: {
-		'X-RapidAPI-Key': 'eed718e75amsh12482e2fc0e3f0ep117724jsn377ef8fba419',
-		'X-RapidAPI-Host': 'youtube138.p.rapidapi.com'
-	}
-};
-const urlVideos = 'https://youtube138.p.rapidapi.com/channel/videos/?id=UC8fkwsjcI_MhralEX1g4OBw&hl=en&gl=US';
-const options2 = {
-	method: 'GET',
-	headers: {
-		'X-RapidAPI-Key': 'eed718e75amsh12482e2fc0e3f0ep117724jsn377ef8fba419',
-		'X-RapidAPI-Host': 'youtube138.p.rapidapi.com'
-	}
-};
-
 let informacion = async() =>{
-    try {
-        const responseChannel = await fetch(url, options);
-        const responseVideos = await fetch(urlVideos,options2);
-        const videos = await responseVideos.json();
-        const result = await responseChannel.json();
-        console.log(result);
-        console.log(videos);
+    const responseChannel = await fetch("channel.json");
+    let responseVideos = await fetch("videos.json");
+    let videos = await responseVideos.json();
+    let canal = await responseChannel.json();
+    console.log(canal);
+    console.log(videos);
 
-        let banner = document.querySelector(".container")
+    let banner = document.querySelector(".container")
         banner.insertAdjacentHTML("beforeend", /*HTML*/`
         <div class="banner">
-            <img src="${result.banner.desktop[3].url}" class="fondo-grande">
+        <img src="${canal.banner.desktop[3].url}" class="fondo-grande">
         </div>
         <div class="list-container">
             <div class="vid-list">
-                
+                ${videos.contents.map((value) => /*HTML*/`
+                    <img src="${value.video.thumbnails[3].url}">
+                    <div class="flex-div">
+                        <img src="${canal.avatar[1].url}">
+                        <div>
+                            <a href="">${value.video.title}</a>
+                            
+                        </div>
+                    </div>
+                `)}
             </div>
         </div>
         `)
-    } catch (error) {
-        console.error(error);
-    }
 }
 informacion();
