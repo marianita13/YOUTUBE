@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () =>{
-// FUNCION PARA CONSUMIR LA API DE LOS IMAGEN VIDEOS Y PONERLOS EN EN HTML
+    // FUNCION PARA CONSUMIR LA API DE LOS IMAGEN VIDEOS Y PONERLOS EN EN HTML
     let informacion = async() =>{
         const responseChannel = await fetch("channel.json");
         let responseVideos = await fetch("videos.json");
@@ -14,13 +14,13 @@ document.addEventListener("DOMContentLoaded", () =>{
                 ${videos.contents.map((value) => /*HTML*/`
                     <div class="vid-list">
                         <div class="contenedor-video">
-                        <a href="single.html" class="a-principal"><img src="${value.video.thumbnails[3].url}" class="imagen-principal"></a>
+                            <img src="${value.video.thumbnails[3].url}" class="imagen-principal" data-video-titulo="${value.title}">
                             <video class="video" src="./images/video.mp4" controls></video>
                         </div>
                         <div  class="flex-div">
                             <img src="${canal.avatar[1].url}">
                             <div>
-                                <a href="">${value.video.title}</a>
+                                <a href="">${value.title}</a>
                                 <p>${value.video.stats.views} views ·${value.video.publishedTimeText}</p>
                             </div>
                         </div>
@@ -28,10 +28,26 @@ document.addEventListener("DOMContentLoaded", () =>{
                 `).join("")}
             </div>
         `)
+        const info = document.querySelectorAll(".vid-list")
+        
+        info.forEach(video_info =>{
+            const imagen_video = video_info.querySelector('.imagen-principal');
+            const titulo = imagen_video.getAttribute('data-video-titulo');
+
+            imagen_video.addEventListener('click', () =>{
+                const videoSeleccionado = obtenerVideoInfo(videos, titulo);
+                localStorage.setItem('videoSeleccionado', JSON.stringify(videoSeleccionado));
+            })
+        })
+        function obtenerVideoInfo(videos,title){
+            const videoVideo = videos.contents.find(v => v.title = title)
+            console.log(localStorage);
+            return videoVideo
+        }
     }
     informacion();
 
-//FUNCION PARA QUE SE REPRODUZAC UNA PEQUEÑA PARTE DEL VIDEO
+    //FUNCION PARA QUE SE REPRODUZCA UNA PEQUEÑA PARTE DEL VIDEO
     const contenedorVideos = document.querySelectorAll(".contenedor-video");
     console.log("prueba1");
 
@@ -55,12 +71,12 @@ document.addEventListener("DOMContentLoaded", () =>{
             });
         }
     );
-})
+
 
 
 // FUNCION PARA QUE EL TEXTO APARECIERA ACORDE AL MOVIMIENTO DE LA BARRA LATERAL
 const contenedor = document.querySelector(".menu-lateral")
-const videos = document.querySelector(".container")
+const videos2 = document.querySelector(".container")
 const suscripcion = document.querySelector(".suscripcion")
 const about = document.querySelector("#about-final")
 
@@ -71,7 +87,7 @@ const toggleClass = (elements, className) => {
   
   document.querySelector("#hamburguesa").addEventListener('click', () => {
     contenedor.classList.toggle('active');
-    videos.classList.toggle('active');
+    videos2.classList.toggle('active');
     about.classList.toggle('active');
   
     const textElements = [
@@ -89,7 +105,4 @@ const toggleClass = (elements, className) => {
     }, 250);
   });
 
-
-  //FUNCION PARA PASAR LA INFORMACION DE UN HTML A OTRO
-  
-  
+})
