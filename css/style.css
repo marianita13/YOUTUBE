@@ -50,7 +50,7 @@ img{
 }
 
 .nav-left .logo{
-    width: 130px;
+    width: 100px;
 }
 
 .nav-middle .mic-icon{
@@ -63,7 +63,7 @@ img{
     border-radius: 25px;
 }
 .nav-middle .search-box input{
-    width: 400px;
+    width: 40vw;
     border: none;
     outline: 0;
     background: transparent;
@@ -88,8 +88,8 @@ img{
     background-color: #fff;
     position: static;
     top: 0; 
-    padding-left: 2%;
-    padding-top: 6%;
+    padding-left: 1vw;
+    padding-top: 14vh;
     transition: 0.5s all ease;
 }
 .menu-lateral.active{
@@ -124,6 +124,9 @@ img{
     padding-top: 9px;
     display: block;
 }
+.suscripcion.activado{
+    padding-bottom: 6px;
+}
 
 /* Categorias activadas */
 #Trending.activado,#Music.activado,#Live.activado,#Gaming.activado,#News.activado,#Sports.activado,
@@ -141,8 +144,8 @@ img{
 }
 
 .youtube {
-    width: 45px !important;
-    margin-right: 4px !important;
+    width: 40px !important;
+    padding: 0px !important;
 }
 #about-final.active{
     display: block;
@@ -189,7 +192,7 @@ img{
     background: #fff;
     padding-left: 15px;
     padding-right: 15px;
-    padding-top: 6%;
+    padding-top: 14vh;
     padding-bottom: 30px;
     transition: ease-in 0.4s;
 }
@@ -206,17 +209,33 @@ img{
 }
 
 .list-container{
+    height: 100vh;
     display: grid;
     grid-template-columns: repeat(auto-fit,minmax(290px,1fr));
-    grid-column-gap: 22px;
+    grid-column-gap: 15px;
     grid-row-gap: 40px;
     margin-top: 15px;
+    padding-left: 15px;
 }
 
-.vid-list .imagen-principal{
+
+.contenedor-video{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.imagen-principal{
     width: 100%;
     border-radius: 5%;
+    transition: transform 0.3s ease;
 }
+/* .imagen-principal:hover{
+    cursor: pointer;
+} */
+/* .video{
+    display: none;
+} */
+
 .vid-list .flex-div{
     align-items: flex-start;
     margin-top: 7px;
@@ -231,21 +250,22 @@ img{
     flex-direction: column;
     gap: 6px;
 }
-.vid-list .flex-div div a{
+.vid-list .flex-div div:nth-child(2) a{
     font-size: 15px;
     color: black;
+    font-weight: 600;
 }
-.vid-list .flex-div div p{
+.vid-list .flex-div div:nth-child(2) p{
     font-size: 13px;
     color:#5a5a5a;
 }
 
-.video-container {
+/* .video-container {
     position: relative;
     display: inline-block;
 }
 
-.video {
+.small-video {
     position: absolute;
     top: 0;
     left: 0;
@@ -254,4 +274,52 @@ img{
     object-fit: cover;
     opacity: 0;
     transition: opacity 0.3s ease;
+} */
+
+
+
+/*MEDIA QUERYS*/
+@media screen and (max-width: 920px){
+    #icono{
+        display: none;
+    }
+}
+@media screen and (max-width: 806px){
+    .menu-lateral{
+        display: none;
+    }
+    .container{
+        width: 100%;
+    }
+}
+@media screen and (max-width:576px) {
+    .mic-icon{
+        display: none;
+    }
+    .nav-left .logo{
+        width: 90px;
+    }
+    .menu-lateral{
+        display: none;
+    }
+}
+@media screen and (max-width: 425px) {
+    .nav-right .user-icon{
+        display: none;
+    }
+    .container{
+        padding-left: 12px;
+    }
+    .list-container{
+        padding-left: 5px;
+    }
+    .nav-middle .search-box{
+        margin-right: 2px;
+    }
+    .nav-left .menu-icon{
+        margin-right: 12px;
+    }
+    .nav-left .logo{
+        width: 70px;
+    }
 }

@@ -1,10 +1,4 @@
-let menuIcon = document.querySelector(".menu-icon");
-let sidebar = document.querySelector(".sidebar")
-
-menuIcon.onclick = function(){
-    sidebar.classList.toggle("small-sidebar")
-}
-
+// FUNCION PARA CONSUMIR LA API DE LOS IMAGEN VIDEOS Y PONERLOS EN EN HTML
 let informacion = async() =>{
     const responseChannel = await fetch("channel.json");
     let responseVideos = await fetch("videos.json");
@@ -18,17 +12,14 @@ let informacion = async() =>{
         <img src="${canal.banner.desktop[3].url}" class="fondo-grande">
         </div>
         <div class="list-container">
-            ${videos.contents.map((value) => 
-                /*HTML*/`
+            ${videos.contents.map((value) => /*HTML*/`
                 <div class="vid-list">
-                    <img src="${value.video.thumbnails[3].url}" class="imagen-principal">
-                    <div class="flex-div">
-                        <div class="video-container" class="imagen-video">
-                            <img src="${canal.avatar[1].url}">
-                             <!---<video class="video" loop class="small-video">
-                               <source src="" type="video">
-                            </video>--->
-                        </div>
+                    <div class="contenedor-video">
+                        <img src="${value.video.thumbnails[3].url}" class="imagen-principal">
+                        <video class="video" scr="./images/video.mp4" controls></video>
+                    </div>
+                    <div  class="flex-div">
+                        <img src="${canal.avatar[1].url}" class="imagen-video">
                         <div>
                             <a href="">${value.video.title}</a>
                             <p>${value.video.stats.views} views ·${value.video.publishedTimeText}</p>
@@ -41,30 +32,27 @@ let informacion = async() =>{
 }
 informacion();
 
-const videoContainer = document.querySelector(".video-container");
-const image = document.querySelector(".imagen-video");
-const video = document.querySelector(".small-video");
+//FUNCION PARA QUE SE REPRODUZAC UNA PEQUEÑA PARTE DEL VIDEO
+const imagen = document.querySelector(".imagen-principal")
+const video = document.querySelector(".video")
 
-videoContainer.addEventListener("mouseenter", () => {
-    video.play();
-    image.style.opacity = "0";
-    video.style.opacity = "1";
-});
-
-videoContainer.addEventListener("mouseleave", () => {
-    video.pause();
-    video.currentTime = 0;
-    image.style.opacity = "1";
-    video.style.opacity = "0";
-});
+imagen.addEventListener("mouseover", () =>{
+    imagen.style.display="none"
+    video.style.display="block"
+    video.play()
+})
+imagen.addEventListener("mouseout", () =>{
+    imagen.style.display="block"
+    video.style.display="none"
+    video.pause()
+})
 
 
+// FUNCION PARA QUE EL TEXTO APARECIERA ACORDE AL MOVIMIENTO DE LA BARRA LATERAL
 const contenedor = document.querySelector(".menu-lateral")
 const videos = document.querySelector(".container")
 const suscripcion = document.querySelector(".suscripcion")
 const about = document.querySelector("#about-final")
-
-
 
 
 const toggleClass = (elements, className) => {
