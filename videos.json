@@ -9,7 +9,7 @@
         "movingThumbnails": [
           {
             "height": 180,
-            "url": "https://i.ytimg.com/an_webp/izvodnnCvt0/mqdefault_6s.webp?du=3000&sqp=CKvkqqcG&rs=AOn4CLDY1wuN2ueIlT7TKm1wbdSBfhDHjg",
+            "url":"https://i.ytimg.com/an_webp/izvodnnCvt0/mqdefault_6s.webp?du=3000&sqp=CKvkqqcG&rs=AOn4CLDY1wuN2ueIlT7TKm1wbdSBfhDHjg",
             "width": 320
           }
         ],
@@ -737,7 +737,6 @@
         "badges": [],
         "isLiveNow": false,
         "lengthSeconds": 537,
-        "movingThumbnails": null,
         "publishedTimeText": "1 month ago",
         "stats": {
           "views": 100
@@ -903,7 +902,6 @@
         "badges": [],
         "isLiveNow": false,
         "lengthSeconds": 528,
-        "movingThumbnails": null,
         "publishedTimeText": "1 month ago",
         "stats": {
           "views": 63
@@ -983,7 +981,6 @@
         "badges": [],
         "isLiveNow": false,
         "lengthSeconds": 370,
-        "movingThumbnails": null,
         "publishedTimeText": "1 month ago",
         "stats": {
           "views": 85
@@ -1149,7 +1146,6 @@
         "badges": [],
         "isLiveNow": false,
         "lengthSeconds": 5367,
-        "movingThumbnails": null,
         "publishedTimeText": "1 month ago",
         "stats": {
           "views": 34
@@ -1186,7 +1182,6 @@
         "badges": [],
         "isLiveNow": false,
         "lengthSeconds": 4415,
-        "movingThumbnails": null,
         "publishedTimeText": "1 month ago",
         "stats": {
           "views": 30
