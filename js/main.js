@@ -35,3 +35,11 @@ let informacion = async() =>{
         `)
 }
 informacion();
+
+const contenedor = document.querySelector(".contenedor")
+const texto = document.querySelector(".texto")
+
+document.querySelector("#hamburguesa").addEventListener('click', () =>{
+    contenedor.classList.toggle('active')
+    texto.classList.toggle('active')
+})
