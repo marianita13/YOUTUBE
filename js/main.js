@@ -7,7 +7,6 @@ document.addEventListener("DOMContentLoaded", () =>{
         let canal = await responseChannel.json();
 
         let banner = document.querySelector(".container")
-        console.log(videos.contents[0].video.movingThumbnails[0].url);
             banner.insertAdjacentHTML("beforeend", /*HTML*/`
             <img src="${canal.banner.desktop[3].url}" class="fondo-grande">
             <div class="list-container">
@@ -80,30 +79,32 @@ const contenedor = document.querySelector(".menu-lateral")
 const videos2 = document.querySelector(".container")
 const suscripcion = document.querySelector(".suscripcion")
 const about = document.querySelector("#about-final")
+const todo = document.querySelector(".todo")
 
 
 const toggleClass = (elements, className) => {
     elements.forEach(element => element.classList.toggle(className));
-  };
-  
-  document.querySelector("#hamburguesa").addEventListener('click', () => {
-    contenedor.classList.toggle('active');
-    videos2.classList.toggle('active');
-    about.classList.toggle('active');
-  
-    const textElements = [
-      texto, texto1, texto2, texto3, texto4, texto5,
-      texto6, texto7, texto8, texto9, texto10, texto11,
-      texto12, texto13, Trending, Music, Live, Gaming,
-      News, Sports, Learning, premium, studio, Musica,
-      kids, suscripcion,Settings,report,Help,Send
-    ];
-  
-    toggleClass(textElements, 'activado');
-  
-    setTimeout(() => {
-      toggleClass([Trending, Music, Live, Gaming, News, Sports, Learning, premium, studio, Musica, kids, suscripcion,Settings,report,Help,Send]);
-    }, 250);
-  });
+    };
+    
+    document.querySelector("#hamburguesa").addEventListener('click', () => {
+        contenedor.classList.toggle('active');
+        videos2.classList.toggle('active');
+        about.classList.toggle('active');
+        todo.classList.toggle('active');
+    
+        const textElements = [
+        texto, texto1, texto2, texto3, texto4, texto5,
+        texto6, texto7, texto8, texto9, texto10, texto11,
+        texto12, texto13, Trending, Music, Live, Gaming,
+        News, Sports, Learning, premium, studio, Musica,
+        kids, suscripcion,Settings,report,Help,Send
+        ];
+    
+        toggleClass(textElements, 'activado');
+    
+        setTimeout(() => {
+        toggleClass([Trending, Music, Live, Gaming, News, Sports, Learning, premium, studio, Musica, kids, suscripcion,Settings,report,Help,Send]);
+        }, 250);
+});
 
 })
