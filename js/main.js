@@ -13,13 +13,14 @@ document.addEventListener("DOMContentLoaded", () =>{
                 ${videos.contents.map((value) => /*HTML*/`
                     <div class="vid-list">
                         <div class="contenedor-video">
-                            <img src="${value.video.thumbnails[3].url}" class="imagen-principal" data-video-titulo="${value.title}">
+                            <img src="${value.video.thumbnails[3].url}" class="imagen-principal" data-video-id="${value.title}">
                             <video class="video" src="./images/video.mp4" controls></video>
                         </div>
                         <div  class="flex-div">
                             <img src="${canal.avatar[1].url}">
                             <div>
                                 <a href="">${value.title}</a>
+                                <p>${canal.title}</p>
                                 <p>${value.video.stats.views} views ·${value.video.publishedTimeText}</p>
                             </div>
                         </div>
@@ -48,29 +49,29 @@ document.addEventListener("DOMContentLoaded", () =>{
     informacion();
 
     //FUNCION PARA QUE SE REPRODUZCA UNA PEQUEÑA PARTE DEL VIDEO
-    const contenedorVideos = document.querySelectorAll(".contenedor-video");
-    console.log("prueba1");
+    // const contenedorVideos = document.querySelectorAll(".contenedor-video");
+    // console.log("prueba1");
 
-        contenedorVideos.forEach(contenedor => {
-            const imagen = contenedor.querySelector(".imagen-principal");
-            const video = contenedor.querySelector(".video");
-            console.log("prueba2");
+    //     contenedorVideos.forEach(contenedor => {
+    //         const imagen = contenedor.querySelector(".imagen-principal");
+    //         const video = contenedor.querySelector(".video");
+    //         console.log("prueba2");
 
-            contenedor.addEventListener("mouseover", () => {
-                imagen.style.display = "none";
-                video.style.display = "block";
-                video.play();
-                console.log("dentro");
-            });
+    //         contenedor.addEventListener("mouseover", () => {
+    //             imagen.style.display = "none";
+    //             video.style.display = "block";
+    //             video.play();
+    //             console.log("dentro");
+    //         });
 
-            contenedor.addEventListener("mouseout", () => {
-                imagen.style.display = "block";
-                video.style.display = "none";
-                video.pause();
-                console.log("fuera");
-            });
-        }
-    );
+    //         contenedor.addEventListener("mouseout", () => {
+    //             imagen.style.display = "block";
+    //             video.style.display = "none";
+    //             video.pause();
+    //             console.log("fuera");
+    //         });
+    //     }
+    // );
 
 
 

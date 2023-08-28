@@ -3,11 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Play Video</title>
+    <title>Video Play</title>
     <link rel="stylesheet" href="./css/single.css">
+    <link rel="shortcut icon" href="./images/Youtube_logo.png">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0/css/all.css" integrity="sha384-3B6NwesSXE7YJlcLI9RpRqGf2p/EgVH8BgoKTaUrmKNDkHPStTQ3EyoYjCGXaOTS" crossorigin="anonymous" />
+
 </head>
 <body>
+    <!-------NAVBAR ------- -->
     <nav class="flex-div" id="busqueda">
         <div class="nav-left flex-div">
             <img src="images/menu-regular-36.png" alt="Menu" class="menu-icon" id="hamburguesa">
@@ -27,12 +30,12 @@
         </div>
     </nav>
 
-     <div class="container play-container">
+    <div class="container play-container">
 
         <div class="row">
             <div class="play-video">
                 <video controls autoplay>
-                    <source src="/images/video.mp4" type="video/mp4">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/tOFzERkOg1s?si=2EnoFFk3X99DzGc_" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                 </video>
                 <div class="tags">
                     <a href="">#Coding</a>
@@ -187,6 +190,5 @@
             
         </div>
      </div>
-    
 </body>
 </html>

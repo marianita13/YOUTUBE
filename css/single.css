@@ -21,8 +21,7 @@ img{
     align-items: center;
 }
 
-
-//navbar
+/* NAVBAR */
 #busqueda{
     width: 100%;
     padding: 10px 2%;
@@ -69,7 +68,6 @@ img{
 .nav-middle .search-box img{
     width: 15px;
 }
-
 
 
 .play-container{
@@ -265,26 +263,4 @@ img{
 
 .old-comment .acomment-action a{
     color: #0000ff;
-}
-
-@media (max-width:900px){
-    .play-video{
-        flex-basis: 100%;
-    }
-    .right-sidebar{
-        flex-basis: 100%;
-    }
-    .play-container{
-        padding-left: 5%;
-    }
-    .vid-description{
-        padding-left: 0;
-
-    }
-    .play-video .play-video-info a{
-        margin-left: 0;
-        margin-right: 15px;
-        margin-top: 15px;
-    }
-
 }
