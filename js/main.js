@@ -37,11 +37,12 @@ document.addEventListener("DOMContentLoaded", () =>{
             imagen_video.addEventListener('click', () =>{
                 const videoSeleccionado = obtenerVideoInfo(videos, titulo);
                 localStorage.setItem('videoSeleccionado', JSON.stringify(videoSeleccionado));
+                window.location.href = 'single.html';
             })
         })
+        console.log(localStorage);
         function obtenerVideoInfo(videos,title){
             const videoVideo = videos.contents.find(v => v.title = title)
-            console.log(localStorage);
             return videoVideo
         }
     }
