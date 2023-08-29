@@ -69,198 +69,193 @@ img{
     width: 15px;
 }
 
-
-.play-container{
-    padding-left: 2%;
-}
-.row{
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-}
-.play-video{
-    flex-basis: 69%;
-
-}
-.right-sidebar{
-    flex-basis: 30%;
-}
-
-.play-video video{
+/*Principal*/
+.todo{
+    display: grid;
+    grid-template-columns: 5% 75% 20%;
     width: 100%;
+    height: 100%;
 }
-
-.side-video-list{
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 8px;
-}
-
-.side-video-list img{
+.todo.active{
+    display: grid;
+    grid-template-columns: 14% 66% 10%;
     width: 100%;
+    height: 100%;
 }
 
-.side-video-list .small-thumbnail{
-    flex-basis: 49%;
-}
+/*SIDEBAR*/
 
-.side-video-list .vid-info{
-    flex-basis: 49%;
-}
-
-.play-video .tags a{
-    color:#0000ff ;
-    font-size: 13px;
-}
-
-.play-video h3{
-    font-weight: 600;
-    font-size: 22px;
-}
-
-.play-video .play-video-info{
+.menu-lateral{
+    grid-column: 1/2;
+    width: 100%;
+    height: auto;
+    background-color: #fff;
+    position: static;
+    top: 0; 
+    padding-left: 0.5vw;
+    padding-right: 0.5vw;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    margin-top: 10px;
-    font-size:  14px;
-    color: #5a5a5a;
+    overflow-y: auto;
+    overflow-x: hidden;
+    margin-top: 90px;
+    transition: 4s all ease-in-out;
+    margin-bottom: 15px;
+}
+.menu-lateral.active{
+    padding-right: 2%;
+    transition: 0.3s all ease-in-out;
+    align-items: start;
 }
 
-.play-video .play-video-info a img{
-    width: 20px;
-    margin-right: 8px;
+.menu-lateral a p{
+    display: none;
+    font-size: 0.9vw !important;
 }
-.play-video .play-video-info a{
-    display: inline-flex;
-    align-items: center;
-    margin-left: 15px;
+.menu-lateral h3{
+    display: none;
+    font-size: 1vw;
 }
-.play-video hr{
-    border:0;
-    height: 1px;
-    background: #ccc;
-    margin: 10px 0px;
-
-}
-.publisher{
-    display: flex;
-    align-items: center;
-    margin-top: 20px;
+.menu-lateral p{
+    display: none;
 }
 
-.publisher div{
-    flex: 1;
-    line-height: 18px;
+/*DISPLAY ACTIVE*/
+/* Comunes a varios elementos activados */
+#texto.activado,#texto2.activado,#texto1.activado,#texto3.activado,#texto4.activado,#texto5.activado,
+#texto6.activado,#texto7.activado,#texto8.activado {
+    display: block;
+    padding-top: 3px;
+    font-size: 1vw;
+    font-weight: lighter;
+    margin-left: 12px;
+    padding-left: 8px;
+}
+#texto9.activado,#texto10.activado,#texto11.activado,#texto12.activado,#texto13.activado,.suscripcion.activado {
+    padding-top: 3px;
+    display: block;
+    margin-left: 12px;
+    padding-left: 8px;
+}
+.suscripcion.activado{
+    padding-bottom: 6px;
 }
 
-.publisher img{
-    width: 40px;
+/* Categorias activadas */
+#Trending.activado,#Music.activado,#Live.activado,#Gaming.activado,#News.activado,#Sports.activado,
+#Learning.activado,#premium.activado,#studio.activado,#Musica.activado,#kids.activado,#Settings.activado,
+#report.activado,#Help.activado,#Send.activado{
+    display: block;
+    padding-top: 3px;
+    margin-left: 12px;
+    padding-left: 8px;
+}
+
+/* Estilos para iconos */
+.chanel,.youtube {
     border-radius: 50%;
-    margin-right: 15px;
+    width: 30px !important;
 }
 
-.publisher div p{
-    color: #000;
-    font-weight: 600;
-    font-size: 18px;
+.youtube {
+    width: 40px !important;
+    padding: 0px !important;
 }
-
-.publisher div span{
-    font-size: 13px;
-    color:#5a5a5a;
-}
-
-.publisher button{
-    background: red;
-    color: #fff;
-    padding: 8px 30px;
-    border: 0;
-    outline: 0;
-    border-radius: 4px;
+#about-final.active{
+    display: block;
+    padding-top: 3p;
+    font-size: 14px;
     cursor: pointer;
+    padding-left: 8px;
+}
+.menu-lateral::-webkit-scrollbar{
+    width: 0;
+    height: 0;
 }
 
-.vid-description{
-    padding-left: 55px;
-    margin: 33px 0px;
 
+.menu-lateral a img{
+    width: 25px;
 }
-
-.vid-description p{
-    font-size: 14px;
-    margin-bottom: 5px;
-    color: #5a5a5a;
-}
-.vid-description h4{
-    font-size: 14px;
-    color: #5a5a5a;
-    margin-top: 15px;
-}
-
-.add-comment{
+.menu-lateral a{
     display: flex;
-    align-items: center;
-    margin: 30px 0px;
+    padding: 8px 9px;
+    color: black;
+    margin-bottom: 7px;
+    width: 90%;
 }
-
-.add-comment img{
-    width: 35px;
-    border-radius: 50%;
-    margin-right: 15px;
+.menu-lateral a:hover{
+    background: #e5e5e5;
+    border-radius: 20px;
 }
-
-.add-comment input{
+.menu-lateral hr{
     border: 0;
-    outline: 0;
-    border-bottom: 1px solid #ccc;
-    width: 100%;
-    padding-top: 10px;
-    background: transparent;
-
+    height: 1px;
+    background: #838080;
+    width: 95%;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+.menu-lateral a.active{
+    background: #e5e5e5;
+    font-weight: bold;
+    border-radius: 20px;
 }
 
-.old-comment{
-    display: flex;
-    align-items: center;
-    margin: 20px 0px;
-    
-}
-.old-comment img{
-    width: 35px;
-    border-radius: 50%;
-    margin-right: 15px;
-}
-.old-comment h3{
-    font-size: 14px;
-    margin-bottom: 3px;
-}
-.old-comment span{
-    font-size: 12px;
-    color: #5a5a5a;
-    font-weight: 500;
+#video-left{
+    margin-top: 90px;
     margin-left: 8px;
 }
-.old-comment .acomment-action{
-    display: flex;
-    align-items: center;
-    margin: 8px 0px;
-    font-size: 14px;
+
+
+/*MEDIA QUERYS*/
+@media screen and (max-width: 1440px){
+    .menu-lateral{
+        padding-left: 0.5vw;
+        padding-right: 0
+    }
 }
-
-.old-comment .acomment-action img{
-    border-radius: 0;
-    width: 20px;
-    margin-right: 5px;
-
+@media screen and (max-width: 806px){
+    #icono{
+        display: none;
+    }
+    .menu-lateral{
+        display: none;
+    }
+    .container{
+        grid-column: 1/3;
+        width: 100%;
+    }
 }
-.old-comment .acomment-action span{
-    margin-right: 20px;
-    color: #5a5a5a;
-
+@media screen and (max-width:576px) {
+    .mic-icon{
+        display: none;
+    }
+    .nav-left .logo{
+        width: 90px;
+    }
+    .menu-lateral{
+        display: none;
+    }
 }
-
-.old-comment .acomment-action a{
-    color: #0000ff;
+@media screen and (max-width: 425px) {
+    .nav-right .user-icon{
+        display: none;
+    }
+    .container{
+        padding-left: 12px;
+    }
+    .list-container{
+        padding-left: 5px;
+    }
+    .nav-middle .search-box{
+        margin-right: 2px;
+    }
+    .nav-left .menu-icon{
+        margin-right: 12px;
+    }
+    .nav-left .logo{
+        width: 70px;
+    }
 }

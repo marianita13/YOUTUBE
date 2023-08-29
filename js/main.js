@@ -1,8 +1,8 @@
 document.addEventListener("DOMContentLoaded", () =>{
     // FUNCION PARA CONSUMIR LA API DE LOS IMAGEN VIDEOS Y PONERLOS EN EN HTML
     let informacion = async() =>{
-        const responseChannel = await fetch("channel.json");
-        let responseVideos = await fetch("videos.json");
+        const responseChannel = await fetch("./storage/channel.json");
+        let responseVideos = await fetch("./storage/videos.json");
         let videos = await responseVideos.json();
         let canal = await responseChannel.json();
 
@@ -11,15 +11,14 @@ document.addEventListener("DOMContentLoaded", () =>{
             <img src="${canal.banner.desktop[3].url}" class="fondo-grande">
             <div class="list-container">
                 ${videos.contents.map((value) => /*HTML*/`
-                    <div class="vid-list">
+                    <div class="vid-list" data-video-id="${value.video.videoId}">
                         <div class="contenedor-video">
-                            <img src="${value.video.thumbnails[3].url}" class="imagen-principal" data-video-id="${value.title}">
-                            <video class="video" src="./images/video.mp4" controls></video>
+                            <img src="${value.video.thumbnails[3].url}" class="imagen-principal" >
                         </div>
                         <div  class="flex-div">
                             <img src="${canal.avatar[1].url}">
                             <div>
-                                <a href="">${value.title}</a>
+                                <a href="">${value.video.title}</a>
                                 <p>${canal.title}</p>
                                 <p>${value.video.stats.views} views ·${value.video.publishedTimeText}</p>
                             </div>
@@ -28,51 +27,22 @@ document.addEventListener("DOMContentLoaded", () =>{
                 `).join("")}
             </div>
         `)
-        const info = document.querySelectorAll(".vid-list")
-        
-        info.forEach(video_info =>{
-            const imagen_video = video_info.querySelector('.imagen-principal');
-            const titulo = imagen_video.getAttribute('data-video-titulo');
 
-            imagen_video.addEventListener('click', () =>{
-                const videoSeleccionado = obtenerVideoInfo(videos, titulo);
-                localStorage.setItem('videoSeleccionado', JSON.stringify(videoSeleccionado));
+        // FUNCION PARA GUARDAR EL ID DEL VIDEO EN EL LOCAL STORAGE
+        const info = document.querySelectorAll(".vid-list")
+        console.log(info);
+        
+        info.forEach(video =>{
+            video.addEventListener('click', () =>{
+                let videoID = video.getAttribute("data-video-id")
+                console.log(videoID);
+
+                localStorage.setItem('Id', videoID)
                 window.location.href = 'single.html';
             })
         })
-        console.log(localStorage);
-        function obtenerVideoInfo(videos,title){
-            const videoVideo = videos.contents.find(v => v.title = title)
-            return videoVideo
-        }
     }
     informacion();
-
-    //FUNCION PARA QUE SE REPRODUZCA UNA PEQUEÑA PARTE DEL VIDEO
-    // const contenedorVideos = document.querySelectorAll(".contenedor-video");
-    // console.log("prueba1");
-
-    //     contenedorVideos.forEach(contenedor => {
-    //         const imagen = contenedor.querySelector(".imagen-principal");
-    //         const video = contenedor.querySelector(".video");
-    //         console.log("prueba2");
-
-    //         contenedor.addEventListener("mouseover", () => {
-    //             imagen.style.display = "none";
-    //             video.style.display = "block";
-    //             video.play();
-    //             console.log("dentro");
-    //         });
-
-    //         contenedor.addEventListener("mouseout", () => {
-    //             imagen.style.display = "block";
-    //             video.style.display = "none";
-    //             video.pause();
-    //             console.log("fuera");
-    //         });
-    //     }
-    // );
-
 
 
 // FUNCION PARA QUE EL TEXTO APARECIERA ACORDE AL MOVIMIENTO DE LA BARRA LATERAL

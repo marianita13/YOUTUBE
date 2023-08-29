@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="./css/single.css">
     <link rel="shortcut icon" href="./images/Youtube_logo.png">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0/css/all.css" integrity="sha384-3B6NwesSXE7YJlcLI9RpRqGf2p/EgVH8BgoKTaUrmKNDkHPStTQ3EyoYjCGXaOTS" crossorigin="anonymous" />
+    <script src="./js/single.js" defer></script>
 
 </head>
 <body>
@@ -30,165 +31,67 @@
         </div>
     </nav>
 
-    <div class="container play-container">
-
-        <div class="row">
-            <div class="play-video">
-                <video controls autoplay>
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/tOFzERkOg1s?si=2EnoFFk3X99DzGc_" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                </video>
-                <div class="tags">
-                    <a href="">#Coding</a>
-                    <a href="">#Html</a>
-                    <a href="">#Css</a>
-                    <a href="">#Java Script</a>
-                </div>
-            <h3>Best YouTube Channel to learn web developers</h3>
-            <div class="play-video-info">
-                <p>1225 views &bull; 2 days ago</p>
-                <div>
-                    <a href=""><img src="/images/like.png">125</a>
-                    <a href=""><img src="/images/dislike.png">125</a>
-                    <a href=""><img src="/images/share.png">125</a>
-                    <a href=""><img src="/images/save.png">125</a>
-                </div>
-            </div>
+    <!-------SIDEBAR --------->
+    <div class="todo">  
+        <nav class="menu-lateral">
+            <a href="" class="active"><img src="images/home-solid-24 (1).png" alt="Home"><p id="texto">Home</p></a>
+            <a href=""><img src="images/YouTube_Shorts_29.png" alt="Shorts"><p id="texto1">Shorts</p></a>
+            <a href=""><img src="images/suscription.png" alt="Suscription"><p id="texto2">Suscription</p></a>
             <hr>
-            <div class="publisher">
-                <img src="/images/Jack.png">
-                <div>
-                    <p>Easy Tutorials</p>
-                    <span>500k Subscribers</span>
-                </div>
-                <button type="button">Subscribirse</button>
+            <a href=""><img src="images/library.png" alt="Library"><p id="texto3">Library</p></a>
+            <a href=""><img src="images/history-regular-24.png" alt="History"><p id="texto4">History</p></a>
+            <a href=""><img src="images/yourvideos.png" alt="Your videos"><p id="texto5">Your videos</p></a>
+            <a href=""><img src="images/watch-later.png" alt="Watch later"><p id="texto6">Watch later</p></a>
+            <a href=""><img src="images/like-regular-24.png" alt="Liked videos"><p id="texto7">Liked videos</p></a>
+            <a href=""><img src="images/show-more.png" alt="Show More"><p id="texto8">Show More</p></a>
+            <hr>
+            <h3 class="suscripcion">Subscriptions</h3>
+            <a href="https://www.youtube.com/@soydalto"><img src="images/soyDalto.png" alt="Soy Dalto" class="chanel"><p id="texto9">Soy Dalto</p></a>
+            <a href="https://www.youtube.com/@freecodecampespanol"><img src="images/freeCode.png" alt="FreeCodeCamp" class="chanel"><p id="texto10">FreeCodeCamp</p></a>
+            <a href="https://www.youtube.com/@TheLateLateShow"><img src="images/theLateLateShow.png" alt="/theLateLateShow" class="chanel"><p id="texto11">The late late Show</p></a>
+            <a href="https://www.youtube.com/@fallontonight"><img src="images/tonigthShow.png" alt="tonigthShow" class="chanel"><p id="texto12">Tonight Show</p></a>
+            <a href="https://www.youtube.com/@auron"><img src="images/auron.png" alt="auron" class="chanel"><p id="texto13">Auron</p></a>
+            <hr>
+            <h3 class="suscripcion">Explore</h3>
+            <a href=""><img src="images/tendencias.png" alt="Show More"><p id="Trending">Trending</p></a>
+            <a href=""><img src="images/nota-musical.png" alt="Show More"><p id="Music">Music</p></a>
+            <a href=""><img src="images/en-vivo.png" alt="Show More"><p id="Live">Live</p></a>
+            <a href=""><img src="images/consola.png" alt="Show More"><p id="Gaming">Gaming</p></a>
+            <a href=""><img src="images/periodico.png" alt="Show More"><p id="News">News</p></a>
+            <a href=""><img src="images/trofeo.png" alt="Show More"><p id="Sports">Sports</p></a>
+            <a href=""><img src="images/idea.png" alt="Show More"><p id="Learning">Learning</p></a>
+            <hr>
+            <h3>More from Youtube</h3>
+            <a href=""><img src="images/premium.png" alt="Premium" class="you-premium"><p id="premium">Youtube Premium</p></a>
+            <a href=""><img src="images/youtube-studio-removebg-preview.png" alt="Studio" class="youtube"><p id="studio">Youtube Studio</p></a>
+            <a href=""><img src="images/Youtube-Music-Logo.png" alt="Show More" class="youtube"><p id="Musica">Youtube Music</p></a>
+            <a href=""><img src="images/youtube-kids-removebg-preview.png" alt="Kids" class="youtube"><p id="kids">Youtube Kids</p></a>
+            <hr>
+            <a href=""><img src="images/configuraciones.png" alt="Kids"><p id="Settings">Settings</p></a>
+            <a href=""><img src="images/banderas.png" alt="Kids"><p id="report">Report History</p></a>
+            <a href=""><img src="images/ayudar.png" alt="Kids"><p id="Help">Help</p></a>
+            <a href=""><img src="images/advertencia.png" alt="Kids"><p id="Send">Send feedback</p></a>
+            <hr>
+            <p id="about-final">About Press Copyright<br><br>Contact Us Creators<br><br>Advertise Developers <br><br>Terms Privacy Policy & Safety<br><br>
+                How Youtube Works<br><br>Test new features</p>
+        </nav>
 
-            </div>
-            <div class="vid-description">
-                <p>Channel that makes learning easy</p>
-                <p>Subscribe Easy Tutorials to watch more tuorials on web developer</p>
-                <hr>
-                <h4>134 Comments</h4>
+        <div class="container play-container">
+            <div class="row">
+                <div class="play-video" id="video-left">
+                    <div class="top-info">
 
+                    </div>
+                    <div class="description">
 
-                <div class="add-comment">
-                    <img src="/images/Jack.png">
-                    <input type="text" placeholder="Write Commets...">
-                </div>
+                    </div>
+                    <div class="videos.sidebar" >
 
-                <div class="old-comment">
-                    <img src="/images/Jack.png" >
-                    <div>
-                        <h3>Jack Nicholson <span>2 days ago</span></h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta ullam laborum sed rem eveniet consequuntur obcaecati, inventore ab molestias omnis necessitatibus odit molestiae magnam voluptatibus adipisci nihil excepturi nostrum architecto!</p>
-                        <div class="acomment-action">
-                            <img src="/images/like.png">
-                            <span>244</span>
-                            <img src="/images/dislike.png" alt="">
-                            <span></span>
-                            <span>REPLY</span>
-                            <a href="">All replies</a>
-                        </div>
                     </div>
                 </div>
-                <div class="old-comment">
-                    <img src="/images/Jack.png" >
-                    <div>
-                        <h3>Jack Nicholson <span>2 days ago</span></h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta ullam laborum sed rem eveniet consequuntur obcaecati, inventore ab molestias omnis necessitatibus odit molestiae magnam voluptatibus adipisci nihil excepturi nostrum architecto!</p>
-                        <div class="acomment-action">
-                            <img src="/images/like.png">
-                            <span>244</span>
-                            <img src="/images/dislike.png" alt="">
-                            <span></span>
-                            <span>REPLY</span>
-                            <a href="">All replies</a>
-                        </div>
-                    </div>
-                </div>
-                
             </div>
-
-
         </div>
+    </div> 
 
-            <div class="right-sidebar">
-                
-                <div class="side-video-list">
-                    <a href="" class="small-thumbnail"><img src="/images/thumbnail1.png"></a>
-                    <div class="vid-info">
-                        <a href="">Best channel that help your to be a web developer</a>
-                        <p>Easy tutorials</p>
-                        <p>15k views</p>
-                    </div>
-                </div>
-                <div class="side-video-list">
-                    <a href="" class="small-thumbnail"><img src="/images/thumbnail2.png"></a>
-                    <div class="vid-info">
-                        <a href="">Best channel that help your to be a web developer</a>
-                        <p>Easy tutorials</p>
-                        <p>15k views</p>
-                    </div>
-                </div>
-                <div class="side-video-list">
-                    <a href="" class="small-thumbnail"><img src="/images/thumbnail3.png"></a>
-                    <div class="vid-info">
-                        <a href="">Best channel that help your to be a web developer</a>
-                        <p>Easy tutorials</p>
-                        <p>15k views</p>
-                    </div>
-                </div>
-                <div class="side-video-list">
-                    <a href="" class="small-thumbnail"><img src="/images/thumbnail4.png"></a>
-                    <div class="vid-info">
-                        <a href="">Best channel that help your to be a web developer</a>
-                        <p>Easy tutorials</p>
-                        <p>15k views</p>
-                    </div>
-                </div>
-                <div class="side-video-list">
-                    <a href="" class="small-thumbnail"><img src="/images/thumbnail5.png"></a>
-                    <div class="vid-info">
-                        <a href="">Best channel that help your to be a web developer</a>
-                        <p>Easy tutorials</p>
-                        <p>15k views</p>
-                    </div>
-                </div>
-                <div class="side-video-list">
-                    <a href="" class="small-thumbnail"><img src="/images/thumbnail6.png"></a>
-                    <div class="vid-info">
-                        <a href="">Best channel that help your to be a web developer</a>
-                        <p>Easy tutorials</p>
-                        <p>15k views</p>
-                    </div>
-                </div>
-                <div class="side-video-list">
-                    <a href="" class="small-thumbnail"><img src="/images/thumbnail7.png"></a>
-                    <div class="vid-info">
-                        <a href="">Best channel that help your to be a web developer</a>
-                        <p>Easy tutorials</p>
-                        <p>15k views</p>
-                    </div>
-                </div>
-                <div class="side-video-list">
-                    <a href="" class="small-thumbnail"><img src="/images/thumbnail8.png"></a>
-                    <div class="vid-info">
-                        <a href="">Best channel that help your to be a web developer</a>
-                        <p>Easy tutorials</p>
-                        <p>15k views</p>
-                    </div>
-                </div>
-                <div class="side-video-list">
-                    <a href="" class="small-thumbnail"><img src="/images/thumbnail1.png"></a>
-                    <div class="vid-info">
-                        <a href="">Best channel that help your to be a web developer</a>
-                        <p>Easy tutorials</p>
-                        <p>15k views</p>
-                    </div>
-                </div>
-            </div>
-            
-            
-        </div>
-     </div>
 </body>
 </html>
