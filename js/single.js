@@ -3,7 +3,6 @@ const contenedor = document.querySelector(".menu-lateral")
 const suscripcion = document.querySelector(".suscripcion")
 const videos2 = document.querySelector(".container")
 const about = document.querySelector("#about-final")
-const todo = document.querySelector(".todo")
 
 
 const toggleClass = (elements, className) => {
@@ -14,7 +13,6 @@ const toggleClass = (elements, className) => {
         contenedor.classList.toggle('active');
         about.classList.toggle('active');
         videos2.classList.toggle('active');
-        todo.classList.toggle('active');
     
         const textElements = [
         texto, texto1, texto2, texto3, texto4, texto5,
@@ -34,41 +32,93 @@ const toggleClass = (elements, className) => {
 //FUNCION PARA PONER EL VIDEO EN EL HTML
 function ponerVideo(parametro) {
     let iframe = document.querySelector("#video-left");
-    iframe.insertAdjacentHTML('beforeend', /*HTML*/`
-    <iframe width="100%" height="500" src="https://www.youtube.com/embed/${parametro}?si=czx-JXcyfxDxe0lv&autoplay=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    iframe.insertAdjacentHTML('afterbegin', /*HTML*/`
+    <iframe width="70%" height="730" src="https://www.youtube.com/embed/${parametro}?si=czx-JXcyfxDxe0lv&autoplay=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
     `)
 }
 
 let localID = localStorage.getItem('Id')
 ponerVideo(localID)
 
+const url = `https://youtube138.p.rapidapi.com/video/details/?id=${localID}&hl=en&gl=US`;
+const options = {
+	method: 'GET',
+	headers: {
+		'X-RapidAPI-Key': 'e686cac1e2msh4bf0ee1a8792a41p141384jsnbb36c7f36ea5',
+		'X-RapidAPI-Host': 'youtube138.p.rapidapi.com'
+	}
+};
 
-// let informacion = async() =>{
-//     const responseChannel = await fetch("./storage/channel.json");
-//     let responseVideos = await fetch("./storage/videos.json");
-//     let videos = await responseVideos.json();
-//     let canal = await responseChannel.json();
+//FUNCION PARA LA INFORMACION DEL VIDEO
 
-//     let banner = document.querySelector(".container")
-//         banner.insertAdjacentHTML("beforeend", /*HTML*/`
-//         <img src="${canal.banner.desktop[3].url}" class="fondo-grande">
-//         <div class="list-container">
-//             ${videos.contents.map((value) => /*HTML*/`
-//                 <div class="vid-list" data-video-id="${value.video.videoId}">
-//                     <div class="contenedor-video">
-//                         <img src="${value.video.thumbnails[3].url}" class="imagen-principal" >
-//                     </div>
-//                     <div  class="flex-div">
-//                         <img src="${canal.avatar[1].url}">
-//                         <div>
-//                             <a href="">${value.video.title}</a>
-//                             <p>${canal.title}</p>
-//                             <p>${value.video.stats.views} views ·${value.video.publishedTimeText}</p>
-//                         </div>
-//                     </div>
-//                 </div>
-//             `).join("")}
-//         </div>
-//     `)
-// }
-// informacion();
+
+
+let informacion = async() =>{
+    const responseChannel = await fetch(url,options);
+    let respuesta = await responseChannel.json();
+    console.log(respuesta);
+
+    let infoVid = document.querySelector('.top-info')
+
+if (respuesta.description == null){
+    infoVid.insertAdjacentHTML('beforeend', 
+`
+    <h3>${respuesta.title}</h3>
+
+    <div class="play-video-info">
+        <p>${respuesta.stats.views} Views &bull; Publish Date: ${respuesta.publishedDate}</p>
+        <div>
+            <a href=""><img src="./IMG/like.png">${respuesta.stats.likes}</a>
+            <a href=""><img src="./IMG/dislike.png"></a>
+            <a href=""><img src="./IMG/share.png">Share</a>
+            <a href=""><img src="./IMG/save.png">Save</a>
+        </div>
+    </div>
+    <hr>
+    <div class="publisher">
+        <img src="${respuesta.author.avatar[2].url}">
+        <div>
+            <p>${respuesta.author.title}</p>
+            <span>${respuesta.author.stats.subscribersText}</span>
+        </div>
+        <button type="button">Subscribe</button>
+    </div>
+
+    <div class="vid-description" id="vid-description">
+    <p>The author doesn't put a description</p>
+    <hr>
+    </div>
+`)
+}
+else{
+    infoVid.insertAdjacentHTML('afterend', 
+    `
+        <h3>${respuesta.title}</h3>
+
+        <div class="play-video-info">
+            <p>${respuesta.stats.views} Views &bull; Publish Date: ${respuesta.publishedDate}</p>
+            <div>
+                <a href=""><img src="./IMG/like.png">${respuesta.stats.likes}</a>
+                <a href=""><img src="./IMG/dislike.png"></a>
+                <a href=""><img src="./IMG/share.png">Share</a>
+                <a href=""><img src="./IMG/save.png">Save</a>
+            </div>
+        </div>
+        <hr>
+        <div class="publisher">
+            <img src="${respuesta.author.avatar[2].url}">
+            <div>
+                <p>${respuesta.author.title}</p>
+                <span>${respuesta.author.stats.subscribersText}</span>
+            </div>
+            <button type="button">Subscribe</button>
+        </div>
+        
+        <div class="vid-description" id="vid-description">
+            <p>${respuesta.description}</p>
+            <hr>
+        </div>
+    `)};
+}
+
+informacion(url,options);
