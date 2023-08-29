@@ -203,11 +203,14 @@ img{
 
 /*DIVISION GRANDE*/
 #division-grid{
+    display: grid;
     grid-column: 2/3;
+    grid-template-columns: 80% 20%;
 }
 
 /*VIDEO GRANDE*/
 #video-left{
+    grid-column: 1/2;
     margin-top: 90px;
     margin-left: 8px;
 }
@@ -337,6 +340,10 @@ img{
       align-items: center;
       margin: 20px 0;
   }
+
+  .old-comment div{
+    font-size: 13px;
+  }
   
   .old-comment img{
       width: 35px;
@@ -377,6 +384,36 @@ img{
   .old-comment .comment-action a{
       color: #0000ff;
   }
+  .informacion{
+    margin-top: 25px;
+  }
+
+  /*VIDEOS BARRA DERECHA*/
+  .videos.sidebar{
+    grid-column: 2/3;
+  }
+
+  .right-sidebar{
+    flex-basis: 30%;
+}
+
+.side-video-list{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
+
+.side-video-list img{
+    width: 100%;
+}
+
+.side-video-list .small-thumbnail{
+    flex-basis: 49%;
+}
+
+.side-video-list .vid-info{
+    flex-basis: 49%;
+}
 
 
 /*MEDIA QUERYS*/
