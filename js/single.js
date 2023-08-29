@@ -49,10 +49,8 @@ const options = {
 	}
 };
 
+
 //FUNCION PARA LA INFORMACION DEL VIDEO
-
-
-
 let informacion = async() =>{
     const responseChannel = await fetch(url,options);
     let respuesta = await responseChannel.json();

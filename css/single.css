@@ -72,7 +72,7 @@ img{
 /*Principal*/
 .todo{
     display: grid;
-    grid-template-columns: 4% 96%;
+    grid-template-columns: 5% 95%;
     width: 100%;
     height: 100%;
 }
@@ -86,7 +86,7 @@ img{
     position: relative;
     display: none;
     top: 0; 
-    margin-top: 90px;
+    padding-top: 90px;
     margin-bottom: 15px;
 }
 .menu-lateral.active{
@@ -162,7 +162,7 @@ img{
     cursor: pointer;
     padding-left: 8px;
 }
-.menu-lateral::-webkit-scrollbar, .play-video::-webkit-scrollbar{
+.menu-lateral::-webkit-scrollbar, .play-container::-webkit-scrollbar{
     width: 0;
     height: 0;
 }
@@ -183,7 +183,7 @@ img{
     border-radius: 20px;
 }
 .menu-lateral hr{
-    border: 0;
+    margin: auto;
     height: 1px;
     background: #838080;
     width: 70%;
@@ -201,7 +201,10 @@ img{
     overflow-y: auto;
 }
 
-
+/*DIVISION GRANDE*/
+#division-grid{
+    grid-column: 2/3;
+}
 
 /*VIDEO GRANDE*/
 #video-left{
