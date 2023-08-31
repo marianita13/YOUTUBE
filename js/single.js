@@ -33,21 +33,21 @@ const toggleClass = (elements, className) => {
 function ponerVideo(parametro) {
     let iframe = document.querySelector("#video-left");
     iframe.insertAdjacentHTML('afterbegin', /*HTML*/`
-    <iframe width="100%" height="730" src="https://www.youtube.com/embed/${parametro}?si=czx-JXcyfxDxe0lv&autoplay=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    <iframe width="98%" height="730" src="https://www.youtube.com/embed/${parametro}?si=czx-JXcyfxDxe0lv&autoplay=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
     `)
 }
 
 let localID = localStorage.getItem('Id')
 ponerVideo(localID)
 
-// const url = `https://youtube138.p.rapidapi.com/video/details/?id=${localID}&hl=en&gl=US`;
-// const options = {
-// 	method: 'GET',
-// 	headers: {
-// 		'X-RapidAPI-Key': '14ea36ce51msh963ef976e572702p1cb575jsnd2637fba7f22',
-// 		'X-RapidAPI-Host': 'youtube138.p.rapidapi.com'
-// 	}
-// };
+const url = `https://youtube138.p.rapidapi.com/video/details/?id=${localID}&hl=en&gl=US`;
+const options = {
+	method: 'GET',
+	headers: {
+		'X-RapidAPI-Key': '25fff4ae59msh0f8d95081bcc6f7p1bb15fjsnd848de3a9a14',
+		'X-RapidAPI-Host': 'youtube138.p.rapidapi.com'
+	}
+};
 
 
 //FUNCION PARA LA INFORMACION DEL VIDEO
@@ -145,7 +145,7 @@ else{
     `)};
 }
 
-// informacion(url,options);
+informacion(url,options);
 
  let videos_right = async() => {
     let peticion = await fetch ('../storage/videos.json') 

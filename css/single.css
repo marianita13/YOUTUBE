@@ -386,11 +386,13 @@ img{
   }
   .informacion{
     margin-top: 25px;
+    margin-right: 25px;
   }
 
   /*VIDEOS BARRA DERECHA*/
-  .videos.sidebar{
+  .videos-sidebar{
     grid-column: 2/3;
+    margin-top: 90px;
   }
 
   .right-sidebar{

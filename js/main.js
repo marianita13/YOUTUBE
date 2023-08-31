@@ -1,8 +1,18 @@
 document.addEventListener("DOMContentLoaded", () =>{
     // FUNCION PARA CONSUMIR LA API DE LOS IMAGEN VIDEOS Y PONERLOS EN EN HTML
+
+    const url = 'https://youtube138.p.rapidapi.com/channel/videos/?id=UC8fkwsjcI_MhralEX1g4OBw&hl=en&gl=US';
+    const urlChannel = 'https://youtube138.p.rapidapi.com/channel/details/?id=UC8fkwsjcI_MhralEX1g4OBw&hl=en&gl=US';
+    const options = {
+        method: 'GET',
+        headers: {
+            'X-RapidAPI-Key': '25fff4ae59msh0f8d95081bcc6f7p1bb15fjsnd848de3a9a14',
+            'X-RapidAPI-Host': 'youtube138.p.rapidapi.com'
+        }
+    };
     let informacion = async() =>{
-        const responseChannel = await fetch("./storage/channel.json");
-        let responseVideos = await fetch("./storage/videos.json");
+        const responseChannel = await fetch(urlChannel,options);
+        let responseVideos = await fetch(url,options);
         let videos = await responseVideos.json();
         let canal = await responseChannel.json();
 
